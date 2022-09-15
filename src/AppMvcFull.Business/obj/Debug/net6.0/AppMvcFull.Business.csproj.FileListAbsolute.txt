@@ -1,0 +1,12 @@
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\bin\Debug\net6.0\AppMvcFull.Business.deps.json
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\bin\Debug\net6.0\AppMvcFull.Business.dll
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\bin\Debug\net6.0\AppMvcFull.Business.pdb
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\obj\Debug\net6.0\AppMvcFull.Business.csproj.AssemblyReference.cache
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\obj\Debug\net6.0\AppMvcFull.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\obj\Debug\net6.0\AppMvcFull.Business.AssemblyInfoInputs.cache
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\obj\Debug\net6.0\AppMvcFull.Business.AssemblyInfo.cs
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\obj\Debug\net6.0\AppMvcFull.Business.csproj.CoreCompileInputs.cache
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\obj\Debug\net6.0\AppMvcFull.Business.dll
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\obj\Debug\net6.0\refint\AppMvcFull.Business.dll
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\obj\Debug\net6.0\AppMvcFull.Business.pdb
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Business\obj\Debug\net6.0\ref\AppMvcFull.Business.dll
