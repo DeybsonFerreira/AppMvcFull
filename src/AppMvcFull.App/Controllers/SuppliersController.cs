@@ -1,8 +1,11 @@
-﻿using AppMvcFull.App.ViewModels;
+﻿using AppMvcFull.App.Extensions;
+using AppMvcFull.App.ViewModels;
 using AppMvcFull.Business.Interfaces;
 using AppMvcFull.Business.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,14 +13,21 @@ using System.Threading.Tasks;
 
 namespace AppMvcFull.App.Controllers
 {
-    public class SuppliersController : Controller
+    public class SuppliersController : BaseController
     {
+        private readonly ISupplierServices _supplierServices;
         private readonly ISupplierRepository _supplierRepository;
         private readonly IAddressRepository _addressRepository;
         private readonly IMapper _mapper;
 
-        public SuppliersController(ISupplierRepository supplierRepository, IAddressRepository addressRepository, IMapper mapper)
+        public SuppliersController(
+            ISupplierServices supplierServices,
+            ISupplierRepository supplierRepository,
+            IAddressRepository addressRepository,
+            IMapper mapper,
+            INotification notification) : base(notification)
         {
+            _supplierServices = supplierServices;
             _supplierRepository = supplierRepository;
             _addressRepository = addressRepository;
             _mapper = mapper;
@@ -43,6 +53,13 @@ namespace AppMvcFull.App.Controllers
             return View(modelView);
         }
 
+        [Route("fornecedor/novo")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [Route("fornecedor/excluir")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var supplier = await _supplierRepository.GetAsync(id);
@@ -53,22 +70,7 @@ namespace AppMvcFull.App.Controllers
             return View(modelView);
         }
 
-        [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
-        {
-            var supplier = await _supplierRepository.GetAsync(id);
-            if (supplier != null)
-            {
-                await _supplierRepository.RemoveAsync(supplier.Id);
-            }
-            return RedirectToAction(nameof(Index));
-        }
-
-        public IActionResult Create()
-        {
-            return View();
-        }
-
+        [Route("fornecedor/popup/{id:guid}")]
         public async Task<IActionResult> GetAddressPopup(Guid id)
         {
             var supplier = await _supplierRepository.GetSupplierWithAddressAsync(id);
@@ -82,6 +84,7 @@ namespace AppMvcFull.App.Controllers
             return PartialView("_AddressUpdateModal", new SupplierViewModel() { Address = modelView.Address });
         }
 
+        [Route("fornecedor/endereco/detalhes/{id:guid}")]
         public async Task<IActionResult> GetAddressDetail(Guid id)
         {
             var supplier = await _supplierRepository.GetSupplierWithAddressAsync(id);
@@ -95,19 +98,7 @@ namespace AppMvcFull.App.Controllers
             return PartialView("_AddressDetail", modelView);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(SupplierViewModel modelView)
-        {
-            if (ModelState.IsValid)
-            {
-                modelView.Id = Guid.NewGuid();
-                Supplier model = _mapper.Map<Supplier>(modelView);
-                await _supplierRepository.AddAsync(model);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(modelView);
-        }
-
+        [Route("fornecedor/editar/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
             Supplier supplier = await _supplierRepository.GetSupplierWithAddressAsync(id);
@@ -119,7 +110,27 @@ namespace AppMvcFull.App.Controllers
             return View(modelView);
         }
 
+        [Route("fornecedor/novo")]
         [HttpPost]
+        public async Task<IActionResult> Create(SupplierViewModel modelView)
+        {
+            if (ModelState.IsValid)
+            {
+                modelView.Id = Guid.NewGuid();
+                Supplier model = _mapper.Map<Supplier>(modelView);
+                await _supplierServices.CreateAsync(model);
+
+                if (!CheckValidation())
+                    return View(modelView);
+
+                TempData["Sucesso"] = "Fornecedor Criado com Sucesso!";
+                return RedirectToAction(nameof(Index));
+            }
+            return View(modelView);
+        }
+
+        [HttpPost]
+        [Route("fornecedor/editar/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id, SupplierViewModel modelView)
         {
             if (id != modelView.Id)
@@ -130,8 +141,12 @@ namespace AppMvcFull.App.Controllers
                 try
                 {
                     Supplier model = _mapper.Map<Supplier>(modelView);
-                    await _supplierRepository.UpdateAsync(model);
-                    await _supplierRepository.SaveChangesAsync();
+                    await _supplierServices.UpdateAsync(model);
+
+                    if (!CheckValidation())
+                        return View(modelView);
+
+                    TempData["Sucesso"] = "Fornecedor Atualizado com Sucesso!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -152,18 +167,38 @@ namespace AppMvcFull.App.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateAddress(SupplierViewModel supplierModel)
+        public async Task<IActionResult> UpdateAddress(SupplierViewModel modelView)
         {
             ModelState.Remove("Name");
             ModelState.Remove("DocumentNumber");
 
             if (!ModelState.IsValid)
-                return PartialView("_AddressUpdateModal", supplierModel);
+                return PartialView("_AddressUpdateModal", modelView);
 
-            await _addressRepository.UpdateAsync(_mapper.Map<Address>(supplierModel.Address));
+            await _supplierServices.UpdateAddressAsync(_mapper.Map<Address>(modelView.Address));
 
-            var url = Url.Action("GetAddressDetail", "Suppliers", new { id = supplierModel.Address.SupplierId });
+            if (!CheckValidation())
+                return View(modelView);
+
+            TempData["Sucesso"] = "Endereço Atualizado com Sucesso!";
+            var url = Url.Action("GetAddressDetail", "Suppliers", new { id = modelView.Address.SupplierId });
             return Json(new { success = true, url });
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [Route("fornecedor/excluir")]
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        {
+            var supplier = await _supplierRepository.GetAsync(id);
+            if (supplier != null)
+            {
+                await _supplierServices.DeleteAsync(supplier.Id);
+                if (!CheckValidation())
+                    return View(_mapper.Map<SupplierViewModel>(supplier));
+
+                TempData["Sucesso"] = "Fornecedor Excluído com Sucesso!";
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 

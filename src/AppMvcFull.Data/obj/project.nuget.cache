@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2qU4jITI8ns855FVyGnvdRuHjKsOAki1jnkkhUWnVSZA5BSJHqJbgzkmqQlld8wxAPutTxuz3XBO4uW81iBbIw==",
+  "dgSpecHash": "IoiEiiR9KpKMigf8W3Ku/l+aTfMTsmd6Bwg1o9q8Ceg3p1G1riXaVNGPwZdmLeDMFDKaT5pdztM1v+XNHnWzTQ==",
   "success": true,
   "projectFilePath": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.Data\\AppMvcFull.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\deybson.ferreira\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512",
     "C:\\Users\\deybson.ferreira\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\deybson.ferreira\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\deybson.ferreira\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

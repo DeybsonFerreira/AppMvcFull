@@ -9,6 +9,14 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+############ Custom ###############
+vs
+.vs
+bin/
+[Bb]in/
+
+############Custom #################
+
 # Local History for Visual Studio Code
 .history/
 

@@ -9,7 +9,7 @@ namespace AppMvcFull.App.Views
     [IgnoreAntiforgeryToken]
     public class ErrorModel : PageModel
     {
-        public string? RequestId { get; set; }
+        public string RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
@@ -23,6 +23,7 @@ namespace AppMvcFull.App.Views
         public void OnGet()
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+            _logger.LogInformation("OnGet Erros");
         }
     }
 }

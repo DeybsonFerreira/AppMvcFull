@@ -1,8 +1,8 @@
-﻿using AppMvcFull.App.ViewModels;
+﻿using AppMvcFull.App.Extensions;
+using AppMvcFull.App.ViewModels;
 using AppMvcFull.Business.Interfaces;
 using AppMvcFull.Business.Models;
 using AutoMapper;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,14 +11,11 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
 
 namespace AppMvcFull.App.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         private readonly IProductRepository _productRepository;
         private readonly ISupplierRepository _supplierRepository;
@@ -32,7 +29,8 @@ namespace AppMvcFull.App.Controllers
             IProductRepository productRepository,
             ISupplierRepository supplierRepository,
             IMapper mapper,
-            IWebHostEnvironment env)
+            IWebHostEnvironment env,
+            INotification notification):base(notification)
         {
             _logger = logger;
             _productRepository = productRepository;

@@ -567,3 +567,4 @@ C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.App\bin\Debug\net6
 C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.App\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.App\bin\Debug\net6.0\libman.json
 C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.App\bin\Debug\net6.0\appsettings.Production.json
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.App\bin\Debug\net6.0\FluentValidation.dll

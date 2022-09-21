@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "f9Lt75yt6gPi/HvWHtEUKp+8Vc2V1X7V/LCbJkoDVX7Ml8vfkT8PZJ+AqSIKAE/Jd2lyQ1Ce7fEVoefVv3XMJQ==",
+  "dgSpecHash": "cMZoH9iuNmsztziJM3XXnRJAL8KZ1QjFWvtRx3QNDjXheJE/b1upEzgTOqQog86BO8tPpQlJ6kUq1bbjtofNcg==",
   "success": true,
   "projectFilePath": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\AppMvcFull.App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\deybson.ferreira\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\deybson.ferreira\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\deybson.ferreira\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512",
     "C:\\Users\\deybson.ferreira\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\deybson.ferreira\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\deybson.ferreira\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

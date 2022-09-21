@@ -13,7 +13,7 @@
 <div class="row my-4">
     <div class="col-md-4">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
 
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -28,8 +28,8 @@
             </div>
 
             <div class="form-group">
-                <input type="radio" name="SupplierType" value="1" asp-for="SupplierType" checked="@Model.SupplierType.GetHashCode()==1" /> Pessoa Física
-                <input type="radio" name="SupplierType" value="2" asp-for="SupplierType" checked="@Model.SupplierType.GetHashCode()==2" /> Pessoa Jurídica
+                <input type="radio" name="SupplierType" value="1" asp-for="SupplierType" checked="@(Model.SupplierType.GetHashCode()==1)" /> Pessoa Física
+                <input type="radio" name="SupplierType" value="2" asp-for="SupplierType" checked="@(Model.SupplierType.GetHashCode()==2)" /> Pessoa Jurídica
             </div>
 
             <div class="form-group form-check mt-3">
