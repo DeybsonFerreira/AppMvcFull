@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SJ2YjehtpMInj/5wB7uGgESygnD3uc+/bJMr2znNYlg=",
+  "Hash": "k8Yt5fbgPFFQvoGOSHTyeTQYwONrYo1kZBn54gdRxFw=",
   "Source": "AppMvcFull.App",
   "BasePath": "_content/AppMvcFull.App",
   "Mode": "Default",
@@ -85,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\wwwroot\\Files\\Product\\113d8a5b-a4ee-4f49-9e3e-e6f5b2145c83.jpg",
+      "Identity": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\wwwroot\\Files\\Product\\8e9f7e5d-d847-4345-ae6c-59c6ac1c7a4c.jpg",
       "SourceId": "AppMvcFull.App",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\wwwroot\\",
       "BasePath": "_content/AppMvcFull.App",
-      "RelativePath": "Files/Product/113d8a5b-a4ee-4f49-9e3e-e6f5b2145c83.jpg",
+      "RelativePath": "Files/Product/8e9f7e5d-d847-4345-ae6c-59c6ac1c7a4c.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,7 +99,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Product\\113d8a5b-a4ee-4f49-9e3e-e6f5b2145c83.jpg"
+      "OriginalItemSpec": "wwwroot\\Files\\Product\\8e9f7e5d-d847-4345-ae6c-59c6ac1c7a4c.jpg"
     },
     {
       "Identity": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\wwwroot\\Files\\Product\\empty.png",

@@ -41,6 +41,7 @@ namespace AppMvcFull.App.Controllers
             _env = env;
         }
 
+        [Route("produtos")]
         public async Task<IActionResult> Index()
         {
             List<Product> products = await _productRepository.GetAllProductSupplierAsync();
@@ -48,6 +49,7 @@ namespace AppMvcFull.App.Controllers
             return View(modelView);
         }
 
+        [Route("produtos/detalhes/{id:guid}")]
         public async Task<IActionResult> Details(Guid id)
         {
             Product product = await _productRepository.GetProductSupplierAsync(id);

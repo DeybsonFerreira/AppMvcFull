@@ -18,3 +18,6 @@ add-migration InitialTables -Context AppMvcFullDbContext -o Migrations_AppMvcFul
 Script-Migration -Context AppMvcFullDbContext >> para gerar o script
 Update-Database -Context AppMvcFullDbContext  >> Para gerar o migration no banco
 Remove-Migration -Context AppMvcFullDbContext >> remover migration
+
+# Fluent Validations
+> Business > dotnet add package FluentValidation --version 11.2.2

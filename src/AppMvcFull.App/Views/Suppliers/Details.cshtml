@@ -7,38 +7,55 @@
 <div class="text-start">
     <h1 class="display-4">Fornecedor</h1>
     <p class="text-muted">Detalhes do fornecedor.</p>
+    <a class="btn btn-warning float-end" asp-action="Edit" asp-route-id="@Model?.Id"> <span class="fa fa-pencil-alt"> </span></a>
+    <hr />
 </div>
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DocumentNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DocumentNumber)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SupplierType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SupplierType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Active)
-        </dd>
-    </dl>
+<div class="row my-4">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" disabled class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="DocumentNumber" class="control-label"></label>
+            <input asp-for="DocumentNumber" disabled class="form-control" />
+        </div>
+    </div>
+
+    <div class="col-md-4 mt-4">
+        <div class="form-group">
+            <input type="radio" disabled name="SupplierType" value="1" asp-for="SupplierType" checked /> Pessoa Física
+            <input type="radio" disabled name="SupplierType" value="2" asp-for="SupplierType" /> Pessoa Jurídica
+        </div>
+
+        <div class="form-group form-check mt-3">
+            <label class="form-check-label">
+                <input disabled class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+            </label>
+        </div>
+    </div>
+
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="row">
+    <div class="col">
+        <h5 class="bg-light px-2 py-2">Endereço</h5>
+        <partial name="_AddressDetail" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h5 class="bg-light px-2 py-2">
+            <a class="btn btn-primary" asp-controller="Products" asp-action="Create"> <span class="fa fa-plus"> </span></a>
+            Produtos
+        </h5>
+        <partial name="../Products/_ListProduct" model="@Model.Products" />
+    </div>
+</div>
+
+
+<div class="text-start">
+    <a class="btn btn-secondary" href="javascript:window.history.back()">  <span class="fa fa-arrow-left"></span> Voltar</a>
 </div>

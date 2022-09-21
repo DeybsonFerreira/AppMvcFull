@@ -1,36 +1,48 @@
 ﻿@model AppMvcFull.App.ViewModels.SupplierViewModel
 
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="row">
+    <div class="form-group col">
+        <label asp-for="Address.ZipCode" class="control-label"></label>
+        <input asp-for="Address.ZipCode" class="form-control" />
+        <span asp-validation-for="Address.ZipCode" class="text-danger"></span>
+    </div>
+    <div class="col-2 mt-4">
+        <button onclick="btnSearchAddress()" type="button" class="btn btn-light btn-searchAddress"> <span class="fa fa-search text-success"></span> </button>
+    </div>
+</div>
+
 <div class="form-group">
     <label asp-for="Address.StreetName" class="control-label"></label>
     <input asp-for="Address.StreetName" class="form-control" />
     <span asp-validation-for="Address.StreetName" class="text-danger"></span>
 </div>
+
 <div class="form-group">
     <label asp-for="Address.Number" class="control-label"></label>
     <input asp-for="Address.Number" class="form-control" />
     <span asp-validation-for="Address.Number" class="text-danger"></span>
 </div>
+
 <div class="form-group">
     <label asp-for="Address.Complement" class="control-label"></label>
     <input asp-for="Address.Complement" class="form-control" />
     <span asp-validation-for="Address.Complement" class="text-danger"></span>
 </div>
-<div class="form-group">
-    <label asp-for="Address.ZipCode" class="control-label"></label>
-    <input asp-for="Address.ZipCode" class="form-control" />
-    <span asp-validation-for="Address.ZipCode" class="text-danger"></span>
-</div>
+
 <div class="form-group">
     <label asp-for="Address.District" class="control-label"></label>
     <input asp-for="Address.District" class="form-control" />
     <span asp-validation-for="Address.District" class="text-danger"></span>
 </div>
+
 <div class="form-group">
     <label asp-for="Address.City" class="control-label"></label>
     <input asp-for="Address.City" class="form-control" />
     <span asp-validation-for="Address.City" class="text-danger"></span>
 </div>
+
 <div class="form-group">
     <label asp-for="Address.State" class="control-label"></label>
     <input asp-for="Address.State" class="form-control" />

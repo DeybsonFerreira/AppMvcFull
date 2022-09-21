@@ -8,8 +8,8 @@
 <div class="text-start">
     <h1 class="display-4">Produto</h1>
     <p class="text-muted">Criação de produtos.</p>
+    <hr />
 </div>
-<hr />
 
 <div class="row">
     <div class="col-md-4">
@@ -29,9 +29,10 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <textarea rows="3" maxlength="200" asp-for="Description" class="form-control" ></textarea>
+                <textarea rows="3" maxlength="200" asp-for="Description" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -51,8 +52,8 @@
             </div>
 
             <div class="form-group mt-3">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                <a class="btn btn-info" asp-action="Index">Voltar</a>
+                <a class="btn btn-light" asp-action="Index">Voltar</a>
+                <input type="submit" value="Cadastrar" class="btn btn-success px-5 float-end" />
             </div>
         </form>
     </div>

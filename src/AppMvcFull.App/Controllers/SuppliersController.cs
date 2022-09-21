@@ -13,24 +13,28 @@ namespace AppMvcFull.App.Controllers
     public class SuppliersController : Controller
     {
         private readonly ISupplierRepository _supplierRepository;
+        private readonly IAddressRepository _addressRepository;
         private readonly IMapper _mapper;
 
-        public SuppliersController(ISupplierRepository supplierRepository, IMapper mapper)
+        public SuppliersController(ISupplierRepository supplierRepository, IAddressRepository addressRepository, IMapper mapper)
         {
             _supplierRepository = supplierRepository;
+            _addressRepository = addressRepository;
             _mapper = mapper;
         }
 
+        [Route("fornecedor")]
         public async Task<IActionResult> Index()
         {
-            List<Supplier> suppliers = await _supplierRepository.GetAllSupplierIncludesAsync();
+            List<Supplier> suppliers = await _supplierRepository.GetAllAsync();
             IEnumerable<SupplierViewModel> modelView = _mapper.Map<IEnumerable<SupplierViewModel>>(suppliers);
             return View(modelView);
         }
 
+        [Route("fornecedor/detalhes/{id:guid}")]
         public async Task<IActionResult> Details(Guid id)
         {
-            Supplier supplier = await _supplierRepository.GetAsync(id);
+            Supplier supplier = await _supplierRepository.GetSupplierWithAddressAndProductsAsync(id);
 
             if (supplier == null)
                 return NotFound();
@@ -50,7 +54,6 @@ namespace AppMvcFull.App.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var supplier = await _supplierRepository.GetAsync(id);
@@ -66,8 +69,33 @@ namespace AppMvcFull.App.Controllers
             return View();
         }
 
+        public async Task<IActionResult> GetAddressPopup(Guid id)
+        {
+            var supplier = await _supplierRepository.GetSupplierWithAddressAsync(id);
+            if (supplier == null)
+            {
+                return NotFound();
+            }
+
+            SupplierViewModel modelView = _mapper.Map<SupplierViewModel>(supplier);
+
+            return PartialView("_AddressUpdateModal", new SupplierViewModel() { Address = modelView.Address });
+        }
+
+        public async Task<IActionResult> GetAddressDetail(Guid id)
+        {
+            var supplier = await _supplierRepository.GetSupplierWithAddressAsync(id);
+            if (supplier == null)
+            {
+                return NotFound();
+            }
+
+            SupplierViewModel modelView = _mapper.Map<SupplierViewModel>(supplier);
+
+            return PartialView("_AddressDetail", modelView);
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SupplierViewModel modelView)
         {
             if (ModelState.IsValid)
@@ -82,7 +110,7 @@ namespace AppMvcFull.App.Controllers
 
         public async Task<IActionResult> Edit(Guid id)
         {
-            Supplier supplier = await _supplierRepository.GetAsync(id);
+            Supplier supplier = await _supplierRepository.GetSupplierWithAddressAsync(id);
 
             if (supplier == null)
                 return NotFound();
@@ -92,7 +120,6 @@ namespace AppMvcFull.App.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, SupplierViewModel modelView)
         {
             if (id != modelView.Id)
@@ -122,6 +149,21 @@ namespace AppMvcFull.App.Controllers
             }
 
             return View(modelView);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateAddress(SupplierViewModel supplierModel)
+        {
+            ModelState.Remove("Name");
+            ModelState.Remove("DocumentNumber");
+
+            if (!ModelState.IsValid)
+                return PartialView("_AddressUpdateModal", supplierModel);
+
+            await _addressRepository.UpdateAsync(_mapper.Map<Address>(supplierModel.Address));
+
+            var url = Url.Action("GetAddressDetail", "Suppliers", new { id = supplierModel.Address.SupplierId });
+            return Json(new { success = true, url });
         }
     }
 

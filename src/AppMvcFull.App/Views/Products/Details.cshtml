@@ -8,17 +8,18 @@
     <h1 class="display-4">Produto</h1>
     <p class="text-muted">Detalhes do Produto.</p>
     <a class="btn btn-warning float-end" asp-action="Edit" asp-route-id="@Model?.Id"> <span class="fa fa-pencil-alt"> </span></a>
+    <a class="mx-2 btn btn-danger float-end" asp-action="Delete" asp-route-id="@Model?.Id"> <span class="fa fa-trash"> </span></a>
 </div>
 <hr />
 
 <div>
     <dl class="row">
 
-        <div class="col-lg-2 col-md-4 col-sm-12">
+        <div class="col-lg-3 col-md-5 col-sm-12">
             <img id="productImg" src="~/Files/Product/@Model.Image" alt="@Model.Image" style="width:200px" />
         </div>
 
-        <div class="col-lg-10 col-md-8 col-sm-12">
+        <div class="col-lg-9 col-md-7 col-sm-12">
 
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Name)
@@ -31,12 +32,6 @@
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Description)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Image)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Value)
@@ -66,7 +61,6 @@
     </dl>
 </div>
 
-<div class="text-center">
+<div class="text-start">
     <a class="btn btn-secondary" href="javascript:window.history.back()">  <span class="fa fa-arrow-left"></span> Voltar</a>
-    <button class="btn btn-success" asp-action="Edit" asp-route-id="@Model?.Id">Atualizar<span class="fa fa-save"></span></button>
 </div>
