@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,5 +49,8 @@ app.UseAuthorization();
 
 app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-
 app.Run();
+
+
+//insert into AspNetUserClaims values('34262373-7f0c-4f99-a168-c5b3e1895fb3','Suppliers','Create,Read,Update,Delete')
+//insert into AspNetUserClaims values('34262373-7f0c-4f99-a168-c5b3e1895fb3','Products','Create,Read,Update,Delete')

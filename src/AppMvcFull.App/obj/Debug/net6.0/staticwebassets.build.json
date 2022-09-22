@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k8Yt5fbgPFFQvoGOSHTyeTQYwONrYo1kZBn54gdRxFw=",
+  "Hash": "mtZjd6eoZyTjzSprdLPZWijMHpFkKCY2j7htfgaWh84=",
   "Source": "AppMvcFull.App",
   "BasePath": "_content/AppMvcFull.App",
   "Mode": "Default",
@@ -100,6 +100,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Files\\Product\\8e9f7e5d-d847-4345-ae6c-59c6ac1c7a4c.jpg"
+    },
+    {
+      "Identity": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\wwwroot\\Files\\Product\\92194447-cac1-4cb7-97c7-699406dac079.jpg",
+      "SourceId": "AppMvcFull.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\wwwroot\\",
+      "BasePath": "_content/AppMvcFull.App",
+      "RelativePath": "Files/Product/92194447-cac1-4cb7-97c7-699406dac079.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\Product\\92194447-cac1-4cb7-97c7-699406dac079.jpg"
+    },
+    {
+      "Identity": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\wwwroot\\Files\\Product\\a54c799a-7bea-416c-ad31-04a52dc55b6a.jpg",
+      "SourceId": "AppMvcFull.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\wwwroot\\",
+      "BasePath": "_content/AppMvcFull.App",
+      "RelativePath": "Files/Product/a54c799a-7bea-416c-ad31-04a52dc55b6a.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\Product\\a54c799a-7bea-416c-ad31-04a52dc55b6a.jpg"
     },
     {
       "Identity": "C:\\Dev.io\\dominando_aspnet_mvc_core\\AppMvcFull\\src\\AppMvcFull.App\\wwwroot\\Files\\Product\\empty.png",

@@ -1,4 +1,5 @@
-﻿@model AppMvcFull.App.ViewModels.ProductViewModel
+﻿@using AppMvcFull.App.Utils
+@model AppMvcFull.App.ViewModels.ProductViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -7,8 +8,8 @@
 <div class="text-start">
     <h1 class="display-4">Produto</h1>
     <p class="text-muted">Detalhes do Produto.</p>
-    <a class="btn btn-warning float-end" asp-action="Edit" asp-route-id="@Model?.Id"> <span class="fa fa-pencil-alt"> </span></a>
-    <a class="mx-2 btn btn-danger float-end" asp-action="Delete" asp-route-id="@Model?.Id"> <span class="fa fa-trash"> </span></a>
+    <a customHide-name="@ConstantClaimName.ProductsClaimName" customHide-value="@ConstantClaimValue.Update" class="btn btn-warning float-end" asp-action="Edit" asp-route-id="@Model?.Id"> <span class="fa fa-pencil-alt"> </span></a>
+    <a customHide-name="@ConstantClaimName.ProductsClaimName" customHide-value="@ConstantClaimValue.Delete" class="mx-2 btn btn-danger float-end" asp-action="Delete" asp-route-id="@Model?.Id"> <span class="fa fa-trash"> </span></a>
 </div>
 <hr />
 

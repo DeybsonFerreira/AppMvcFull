@@ -1,10 +1,12 @@
 ﻿using AppMvcFull.App.Extensions;
+using AppMvcFull.App.Utils;
 using AppMvcFull.App.ViewModels;
 using AppMvcFull.Business.Interfaces;
 using AppMvcFull.Business.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace AppMvcFull.App.Controllers
 {
+    [Authorize]
     public class SuppliersController : BaseController
     {
         private readonly ISupplierServices _supplierServices;
@@ -25,7 +28,8 @@ namespace AppMvcFull.App.Controllers
             ISupplierRepository supplierRepository,
             IAddressRepository addressRepository,
             IMapper mapper,
-            INotification notification) : base(notification)
+            INotification notification,
+            IWebHostEnvironment env) : base(notification, env)
         {
             _supplierServices = supplierServices;
             _supplierRepository = supplierRepository;
@@ -34,6 +38,7 @@ namespace AppMvcFull.App.Controllers
         }
 
         [Route("fornecedor")]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Read)]
         public async Task<IActionResult> Index()
         {
             List<Supplier> suppliers = await _supplierRepository.GetAllAsync();
@@ -42,6 +47,7 @@ namespace AppMvcFull.App.Controllers
         }
 
         [Route("fornecedor/detalhes/{id:guid}")]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Read)]
         public async Task<IActionResult> Details(Guid id)
         {
             Supplier supplier = await _supplierRepository.GetSupplierWithAddressAndProductsAsync(id);
@@ -54,12 +60,14 @@ namespace AppMvcFull.App.Controllers
         }
 
         [Route("fornecedor/novo")]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Create)]
         public IActionResult Create()
         {
             return View();
         }
 
         [Route("fornecedor/excluir")]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Delete)]
         public async Task<IActionResult> Delete(Guid id)
         {
             var supplier = await _supplierRepository.GetAsync(id);
@@ -71,6 +79,7 @@ namespace AppMvcFull.App.Controllers
         }
 
         [Route("fornecedor/popup/{id:guid}")]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Read)]
         public async Task<IActionResult> GetAddressPopup(Guid id)
         {
             var supplier = await _supplierRepository.GetSupplierWithAddressAsync(id);
@@ -85,6 +94,7 @@ namespace AppMvcFull.App.Controllers
         }
 
         [Route("fornecedor/endereco/detalhes/{id:guid}")]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Read)]
         public async Task<IActionResult> GetAddressDetail(Guid id)
         {
             var supplier = await _supplierRepository.GetSupplierWithAddressAsync(id);
@@ -99,6 +109,7 @@ namespace AppMvcFull.App.Controllers
         }
 
         [Route("fornecedor/editar/{id:guid}")]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Update)]
         public async Task<IActionResult> Edit(Guid id)
         {
             Supplier supplier = await _supplierRepository.GetSupplierWithAddressAsync(id);
@@ -112,6 +123,7 @@ namespace AppMvcFull.App.Controllers
 
         [Route("fornecedor/novo")]
         [HttpPost]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Create)]
         public async Task<IActionResult> Create(SupplierViewModel modelView)
         {
             if (ModelState.IsValid)
@@ -131,6 +143,7 @@ namespace AppMvcFull.App.Controllers
 
         [HttpPost]
         [Route("fornecedor/editar/{id:guid}")]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Update)]
         public async Task<IActionResult> Edit(Guid id, SupplierViewModel modelView)
         {
             if (id != modelView.Id)
@@ -167,6 +180,7 @@ namespace AppMvcFull.App.Controllers
         }
 
         [HttpPost]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Update)]
         public async Task<IActionResult> UpdateAddress(SupplierViewModel modelView)
         {
             ModelState.Remove("Name");
@@ -187,6 +201,7 @@ namespace AppMvcFull.App.Controllers
 
         [HttpPost, ActionName("Delete")]
         [Route("fornecedor/excluir")]
+        [ClaimsAuthorize(ConstantClaimName.SuppliersClaimName, ConstantClaimValue.Delete)]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var supplier = await _supplierRepository.GetAsync(id);

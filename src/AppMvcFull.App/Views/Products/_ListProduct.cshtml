@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AppMvcFull.App.ViewModels.ProductViewModel>
+﻿@using AppMvcFull.App.Utils
+@model IEnumerable<AppMvcFull.App.ViewModels.ProductViewModel>
 
 @if (Model != null)
 {
@@ -39,9 +40,9 @@
                         @Html.DisplayFor(modelItem => item.Supplier.Name)
                     </td>
                     <td class="text-end">
-                        <a class="btn btn-info" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id"> <span class="fa fa-search"> </span> </a>
-                        <a class="btn btn-warning" asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"> </span></a>
-                        <a class="btn btn-danger" asp-controller="Products" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"> </span></a>
+                        <a customHide-name="@ConstantClaimName.ProductsClaimName" customHide-value="@ConstantClaimValue.Read" class="btn btn-info" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id"> <span class="fa fa-search"> </span> </a>
+                        <a customHide-name="@ConstantClaimName.ProductsClaimName" customHide-value="@ConstantClaimValue.Update" class="btn btn-warning" asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"> </span></a>
+                        <a customHide-name="@ConstantClaimName.ProductsClaimName" customHide-value="@ConstantClaimValue.Delete" class="btn btn-danger" asp-controller="Products" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"> </span></a>
                     </td>
                 </tr>
             }

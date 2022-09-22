@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using AppMvcFull.App.Utils
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -27,10 +28,16 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                            <a class="nav-link"
+                               customHide-name="@ConstantClaimName.ProductsClaimName"
+                               customHide-value="@ConstantClaimValue.Read"
+                               asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Suppliers" asp-action="Index">Suppliers</a>
+                            <a class="nav-link"
+                               customHide-name="@ConstantClaimName.SuppliersClaimName"
+                               customHide-value="@ConstantClaimValue.Read"
+                               asp-area="" asp-controller="Suppliers" asp-action="Index">Suppliers</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />

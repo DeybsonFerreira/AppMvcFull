@@ -1,4 +1,5 @@
 ﻿@using AppMvcFull.App.Extensions
+@using AppMvcFull.App.Utils
 @model IEnumerable<AppMvcFull.App.ViewModels.SupplierViewModel>
 
 @{
@@ -9,7 +10,11 @@
     <h1 class="display-4">Fornecedor</h1>
     <p class="text-muted">Lista de fornecedores.</p>
     <p class="text-end">
-        <a class="btn btn-primary" asp-action="Create"> <span class="fa fa-plus"></span> Adicionar</a>
+        <a class="btn btn-primary" asp-action="Create"
+           customHide-name="@ConstantClaimName.SuppliersClaimName"
+           customHide-value="@ConstantClaimValue.Create">
+            <span class="fa fa-plus"></span> Adicionar
+        </a>
     </p>
 </div>
 <hr />
@@ -49,9 +54,23 @@
                     @Html.DisplayFor(modelItem => item.Active)
                 </td>
                 <td class="text-end">
-                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"> <span class="fa fa-search"> </span> </a>
-                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"> </span></a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"> </span></a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"
+                   customHide-name="@ConstantClaimName.SuppliersClaimName"
+                   customHide-value="@ConstantClaimValue.Read">
+                        <span class="fa fa-search"> </span>
+                    </a>
+
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"
+                   customHide-name="@ConstantClaimName.SuppliersClaimName"
+                   customHide-value="@ConstantClaimValue.Update">
+                        <span class="fa fa-pencil-alt"> </span>
+                    </a>
+
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"
+                   customHide-name="@ConstantClaimName.SuppliersClaimName"
+                   customHide-value="@ConstantClaimValue.Delete">
+                        <span class="fa fa-trash"> </span>
+                    </a>
                 </td>
             </tr>
         }

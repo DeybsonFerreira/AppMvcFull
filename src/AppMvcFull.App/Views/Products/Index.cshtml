@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AppMvcFull.App.ViewModels.ProductViewModel>
+﻿@using AppMvcFull.App.Utils
+@model IEnumerable<AppMvcFull.App.ViewModels.ProductViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -8,7 +9,11 @@
     <h1 class="display-4">Produtos</h1>
     <p class="text-muted">Lista de produtos.</p>
     <p class="text-end">
-        <a class="btn btn-primary" asp-action="Create"> <span class="fa fa-plus"></span> Adicionar</a>
+        <a class="btn btn-primary"
+           customHide-name="@ConstantClaimName.ProductsClaimName" 
+           customHide-value="@ConstantClaimValue.Create"
+           asp-action="Create"> <span class="fa fa-plus"></span> Adicionar
+       </a>
     </p>
 </div>
 <hr />

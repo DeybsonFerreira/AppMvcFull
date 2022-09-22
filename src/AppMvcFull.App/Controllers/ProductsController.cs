@@ -1,28 +1,27 @@
 ﻿using AppMvcFull.App.Extensions;
+using AppMvcFull.App.Utils;
 using AppMvcFull.App.ViewModels;
 using AppMvcFull.Business.Interfaces;
 using AppMvcFull.Business.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace AppMvcFull.App.Controllers
 {
+    [Authorize]
     public class ProductsController : BaseController
     {
         private readonly IProductRepository _productRepository;
         private readonly ISupplierRepository _supplierRepository;
         private readonly IMapper _mapper;
-        private readonly IWebHostEnvironment _env;
         private readonly ILogger<ProductsController> _logger;
-
 
         public ProductsController(
             ILogger<ProductsController> logger,
@@ -30,16 +29,16 @@ namespace AppMvcFull.App.Controllers
             ISupplierRepository supplierRepository,
             IMapper mapper,
             IWebHostEnvironment env,
-            INotification notification):base(notification)
+            INotification notification) : base(notification, env)
         {
             _logger = logger;
             _productRepository = productRepository;
             _supplierRepository = supplierRepository;
             _mapper = mapper;
-            _env = env;
         }
 
         [Route("produtos")]
+        [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Read)]
         public async Task<IActionResult> Index()
         {
             List<Product> products = await _productRepository.GetAllProductSupplierAsync();
@@ -48,6 +47,7 @@ namespace AppMvcFull.App.Controllers
         }
 
         [Route("produtos/detalhes/{id:guid}")]
+        [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Read)]
         public async Task<IActionResult> Details(Guid id)
         {
             Product product = await _productRepository.GetProductSupplierAsync(id);
@@ -59,6 +59,8 @@ namespace AppMvcFull.App.Controllers
             return View(modelView);
         }
 
+        [Route("produtos/excluir/{id:guid}")]
+        [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Delete)]
         public async Task<IActionResult> Delete(Guid id)
         {
             var product = await _productRepository.GetAsync(id);
@@ -70,7 +72,9 @@ namespace AppMvcFull.App.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [Route("produtos/excluir/{id:guid}")]
         [ValidateAntiForgeryToken]
+        [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Delete)]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var product = await _productRepository.GetAsync(id);
@@ -81,6 +85,8 @@ namespace AppMvcFull.App.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Route("produtos/novo")]
+        [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Create)]
         public async Task<IActionResult> Create()
         {
             var modelView = new ProductViewModel
@@ -92,7 +98,9 @@ namespace AppMvcFull.App.Controllers
         }
 
         [HttpPost]
+        [Route("produtos/novo")]
         [ValidateAntiForgeryToken]
+        [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Create)]
         public async Task<IActionResult> Create(ProductViewModel modelView)
         {
             if (ModelState.IsValid)
@@ -114,6 +122,8 @@ namespace AppMvcFull.App.Controllers
             return View(modelView);
         }
 
+        [Route("produtos/editar/{id:guid}")]
+        [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Update)]
         public async Task<IActionResult> Edit(Guid id)
         {
             ProductViewModel modelView = _mapper.Map<ProductViewModel>(await _productRepository.GetProductSupplierAsync(id));
@@ -121,7 +131,9 @@ namespace AppMvcFull.App.Controllers
         }
 
         [HttpPost]
+        [Route("produtos/editar/{id:guid}")]
         [ValidateAntiForgeryToken]
+        [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Update)]
         public async Task<IActionResult> Edit(Guid id, ProductViewModel modelView)
         {
             if (id != modelView.Id) return NotFound();
@@ -159,7 +171,6 @@ namespace AppMvcFull.App.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            //ViewData["SupplierId"] = new SelectList(_context.Set<Supplier>(), "Id", "Id", product.SupplierId);
             return View(modelView);
         }
 
@@ -167,56 +178,5 @@ namespace AppMvcFull.App.Controllers
         {
             return _mapper.Map<IEnumerable<SupplierViewModel>>(await _supplierRepository.GetAllAsync());
         }
-
-        private async Task<bool> SaveProductImage(ProductViewModel modelView)
-        {
-            if (modelView.ImageUpload != null)
-            {
-                string imgPrefix = $"{modelView.Id}.jpg";
-                var createFolder = await UploadImage(modelView.ImageUpload, imgPrefix, "Product");
-                if (createFolder)
-                    modelView.Image = imgPrefix;
-
-                return createFolder;
-            }
-            return true;
-        }
-        private async Task<bool> UploadImage(IFormFile file, string imgPrefix, string folderType)
-        {
-            if (file.Length <= 0) return false;
-            decimal imgCurrent = decimal.Round(file.Length / 1024M / 1024M, 2);
-            decimal maxMegaByte = 3M;
-            if (imgCurrent > maxMegaByte)
-            {
-                ModelState.AddModelError("", $"Imagem contém {imgCurrent}MB não pode ser maior que {maxMegaByte}MB");
-                return false;
-            }
-
-            Uri resourcePath = new Uri($"{Request.Scheme}://{Request.Host}/");
-            string folderPath = Path.Combine(_env.ContentRootPath, "wwwroot/Files", folderType);
-            try
-            {
-
-                if (!Directory.Exists(folderPath))
-                    Directory.CreateDirectory(folderPath);
-
-                folderPath += $"/{imgPrefix}";
-
-                if (System.IO.File.Exists(folderPath))
-                    System.IO.File.Delete(folderPath);
-
-                await using FileStream fs = new(folderPath, FileMode.CreateNew);
-                await file.CopyToAsync(fs);
-            }
-            catch (IOException ex)
-            {
-                ModelState.AddModelError("", $"Erro ao criar imagem <Log> ${ex.Message}");
-                _logger.LogError($"Error on create file on {resourcePath} | {ex.Message}");
-                return false;
-            }
-
-            return true;
-        }
-
     }
 }
