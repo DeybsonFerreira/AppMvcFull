@@ -10,8 +10,9 @@
 !.vscode/*.code-snippets
 
 ############ Custom ###############
-vs
 .vs
+/.vs
+\.vs
 bin/
 [Bb]in/
 
