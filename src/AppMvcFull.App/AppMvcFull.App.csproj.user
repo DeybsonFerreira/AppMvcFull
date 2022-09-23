@@ -15,6 +15,7 @@
     <View_SelectedScaffolderID>RazorViewEmptyScaffolder</View_SelectedScaffolderID>
     <View_SelectedScaffolderCategoryPath>root/Common/MVC/View</View_SelectedScaffolderCategoryPath>
     <ActiveDebugProfile>Start.App</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.App\Properties\PublishProfiles\IIS_DEPLOY.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

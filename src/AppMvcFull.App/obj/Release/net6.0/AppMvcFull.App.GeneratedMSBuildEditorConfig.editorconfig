@@ -11,7 +11,7 @@ build_property.RootNamespace = AppMvcFull.App
 build_property.ProjectDir = C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.App\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.App
 build_property._RazorSourceGeneratorDebug = 
 
@@ -19,34 +19,94 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Products/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Pages/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Products/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Products/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Products/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-5kh4z7wgbw
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Products/_ListProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcX0xpc3RQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Shared/Components/Summary/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU3VtbWFyeVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Suppliers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Suppliers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Suppliers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Suppliers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Suppliers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Suppliers/_Address.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXF9BZGRyZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Suppliers/_AddressDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXF9BZGRyZXNzRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Suppliers/_AddressUpdateModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXF9BZGRyZXNzVXBkYXRlTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev.io/dominando_aspnet_mvc_core/AppMvcFull/src/AppMvcFull.App/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-bmp59jqek6

@@ -1,0 +1,15 @@
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\bin\Release\net6.0\AppMvcFull.Data.deps.json
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\bin\Release\net6.0\AppMvcFull.Data.dll
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\bin\Release\net6.0\AppMvcFull.Data.pdb
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\bin\Release\net6.0\AppMvcFull.Business.dll
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\bin\Release\net6.0\AppMvcFull.Business.pdb
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\AppMvcFull.Data.csproj.AssemblyReference.cache
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\AppMvcFull.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\AppMvcFull.Data.AssemblyInfoInputs.cache
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\AppMvcFull.Data.AssemblyInfo.cs
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\AppMvcFull.Data.csproj.CoreCompileInputs.cache
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\AppMvcFull.Data.csproj.CopyComplete
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\AppMvcFull.Data.dll
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\refint\AppMvcFull.Data.dll
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\AppMvcFull.Data.pdb
+C:\Dev.io\dominando_aspnet_mvc_core\AppMvcFull\src\AppMvcFull.Data\obj\Release\net6.0\ref\AppMvcFull.Data.dll

@@ -71,7 +71,6 @@ namespace AppMvcFull.App.Controllers
 
         [HttpPost, ActionName("Delete")]
         [Route("produtos/excluir/{id:guid}")]
-        [ValidateAntiForgeryToken]
         [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Delete)]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
@@ -97,7 +96,6 @@ namespace AppMvcFull.App.Controllers
 
         [HttpPost]
         [Route("produtos/novo")]
-        [ValidateAntiForgeryToken]
         [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Create)]
         public async Task<IActionResult> Create(ProductViewModel modelView)
         {
@@ -130,7 +128,6 @@ namespace AppMvcFull.App.Controllers
 
         [HttpPost]
         [Route("produtos/editar/{id:guid}")]
-        [ValidateAntiForgeryToken]
         [ClaimsAuthorize(ConstantClaimName.ProductsClaimName, ConstantClaimValue.Update)]
         public async Task<IActionResult> Edit(Guid id, ProductViewModel modelView)
         {
