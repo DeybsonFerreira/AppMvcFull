@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace AppMvcFull.App.ViewModels
+namespace AppMvcFull.App.Models
 {
     public class SupplierViewModel
     {

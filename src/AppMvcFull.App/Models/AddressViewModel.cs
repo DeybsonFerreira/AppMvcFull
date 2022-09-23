@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace AppMvcFull.App.ViewModels
+namespace AppMvcFull.App.Models
 {
     public class AddressViewModel
     {

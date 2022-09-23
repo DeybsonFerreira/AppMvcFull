@@ -31,13 +31,17 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseMigrationsEndPoint();
 }
 else
 {
-    app.UseExceptionHandler("/Error");
+    app.UseExceptionHandler("/erro/500");
+    app.UseStatusCodePagesWithRedirects("/erro/{0}");
     app.UseHsts();
 }
+
+app.UseHttpsRedirection();
 app.SetCustomLocalization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();

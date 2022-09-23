@@ -1,8 +1,9 @@
-﻿using AppMvcFull.App.ViewModels;
+﻿using AppMvcFull.App.Models;
 using AppMvcFull.Business.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -13,10 +14,16 @@ namespace AppMvcFull.App.Extensions
     {
         private readonly INotification _notification;
         private readonly IWebHostEnvironment _env;
-        protected BaseController(INotification notification, IWebHostEnvironment env)
+        public readonly ILogger<BaseController> _logger;
+
+        protected BaseController(
+            INotification notification,
+            IWebHostEnvironment env,
+            ILogger<BaseController> logger)
         {
             _notification = notification;
             _env = env;
+            _logger = logger;
         }
 
         protected bool CheckValidation()

@@ -1,6 +1,6 @@
 ﻿using AppMvcFull.App.Extensions;
+using AppMvcFull.App.Models;
 using AppMvcFull.App.Utils;
-using AppMvcFull.App.ViewModels;
 using AppMvcFull.Business.Interfaces;
 using AppMvcFull.Business.Models;
 using AutoMapper;
@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -24,12 +25,13 @@ namespace AppMvcFull.App.Controllers
         private readonly IMapper _mapper;
 
         public SuppliersController(
+            ILogger<SuppliersController> logger,
             ISupplierServices supplierServices,
             ISupplierRepository supplierRepository,
             IAddressRepository addressRepository,
             IMapper mapper,
             INotification notification,
-            IWebHostEnvironment env) : base(notification, env)
+            IWebHostEnvironment env) : base(notification, env, logger)
         {
             _supplierServices = supplierServices;
             _supplierRepository = supplierRepository;

@@ -1,6 +1,6 @@
 ﻿using AppMvcFull.App.Extensions;
+using AppMvcFull.App.Models;
 using AppMvcFull.App.Utils;
-using AppMvcFull.App.ViewModels;
 using AppMvcFull.Business.Interfaces;
 using AppMvcFull.Business.Models;
 using AutoMapper;
@@ -21,7 +21,6 @@ namespace AppMvcFull.App.Controllers
         private readonly IProductRepository _productRepository;
         private readonly ISupplierRepository _supplierRepository;
         private readonly IMapper _mapper;
-        private readonly ILogger<ProductsController> _logger;
 
         public ProductsController(
             ILogger<ProductsController> logger,
@@ -29,9 +28,8 @@ namespace AppMvcFull.App.Controllers
             ISupplierRepository supplierRepository,
             IMapper mapper,
             IWebHostEnvironment env,
-            INotification notification) : base(notification, env)
+            INotification notification) : base(notification, env, logger)
         {
-            _logger = logger;
             _productRepository = productRepository;
             _supplierRepository = supplierRepository;
             _mapper = mapper;
