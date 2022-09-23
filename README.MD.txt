@@ -1,3 +1,7 @@
+CLI
+dotnet projectExample.dll --environment=Development
+dotnet run --project "projectExample.csproj"
+
 # Template folder
 /App
 /Data
@@ -28,11 +32,22 @@ Remove-Migration -Context AppMvcFullDbContext >> remover migration
 > Self-Contained > Entregar o framework no servidor junto com a aplicação do deploy.
 > Framework-Dependent > Quando servidor já tem o framework instalado 
 
-Utilizando SelfHosting
-dotnet run --project "exemplo.csproj"
 
  Para setar a variável de ambiente no deploy (do IIS) basta utilizar o código no arquivo deploy.pubxml
 
 <environmentVariables>
   <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Production" />
  </environmentVariables>
+
+
+
+
+/************ARQUIVO BAT**************************/
+@echo iniciando
+@echo *****************************************
+cd src\appmvcfull.app\
+dotnet restore
+dotnet run --project appmvcfull.app.csproj
+
+pause
+

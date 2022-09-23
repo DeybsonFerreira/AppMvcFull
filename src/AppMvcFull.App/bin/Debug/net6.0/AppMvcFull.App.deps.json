@@ -32,7 +32,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "AppMvcFull.App/1.0.0": {
+      "appmvcfull.app/1.0.0": {
         "dependencies": {
           "AppMvcFull.Data": "1.0.0",
           "AutoMapper": "11.0.1",
@@ -334,10 +334,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "AppMvcFull.App.dll": {}
+          "appmvcfull.app.dll": {}
         },
         "compile": {
-          "AppMvcFull.App.dll": {}
+          "appmvcfull.app.dll": {}
         }
       },
       "AutoMapper/11.0.1": {
@@ -4685,7 +4685,7 @@
     }
   },
   "libraries": {
-    "AppMvcFull.App/1.0.0": {
+    "appmvcfull.app/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
